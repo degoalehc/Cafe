@@ -13,8 +13,11 @@ INPUT .\proyecto.aux
 INPUT .\proyecto.aux
 INPUT proyecto.aux
 OUTPUT proyecto.aux
+INPUT C:\Users\regin\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 OUTPUT proyecto.pdf
 INPUT C:\Users\regin\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT proyecto.aux
+INPUT C:\Users\regin\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\regin\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
 INPUT C:\Users\regin\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\regin\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
