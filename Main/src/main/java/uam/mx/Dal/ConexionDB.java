@@ -19,10 +19,10 @@ public class ConexionDB {
     private Connection connection;
 
     public ConexionDB(){
-        accesoDB();
+        AccesoDB();
     }
 
-    private void accesoDB(){
+    private void AccesoBD(){
         Properties properties = new Properties();
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("db.properties")){
             if(input == null){
