@@ -31,8 +31,11 @@ public class ConexionDB {
             }
             properties.load(input);
             database = properties.getProperty("database");
+            host = properties.getProperty("host");
+            port = properties.getProperty("port");
+            database = properties.getProperty("scheme");
             host = properties.getProperty("user");
-            port = properties.getP
+            port = properties.getProperty("port");
         }
     }
 
