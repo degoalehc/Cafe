@@ -1,0 +1,87 @@
+\documentclass{report}
+
+\usepackage[spanish]{babel}
+
+\title{Sistema de Gestión de Inventario para una Cafetería}
+
+\author{Regina andrade Fern/´andez Arcipreste, Diego Alejando Hern\´andez Cruz, Cintia Fernanda Reyes Hern\´andez  }
+
+\date{\today}
+
+\begin{document}
+
+\begin{center}
+
+Punto de venta de una cafeter/´ia
+
+\end{center}
+
+
+
+\section{Introducción}
+Actualmente, la cafetería enfrenta dificultades para gestionar eficientemente su inventario y operaciones de almacén y ventas. La falta de un sistema automatizado genera errores humanos, como cálculos incorrectos de existencias, dificultades para prever necesidades de reabastecimiento y una gestión poco clara del stock. Esto puede resultar en pérdidas económicas y una experiencia subóptima para los clientes debido a productos no disponibles.
+
+\section{Misión}
+Desarrollar un sistema de gestión de almacén en Java que sea eficiente, fácil de usar y capaz de optimizar los procesos de inventario, reduciendo errores manuales y mejorando el control de las existencias. Este sistema será adaptable a las necesidades de la cafetería y garantizará una operación fluida y organizada.
+
+\section{Visión}
+Crear una solución tecnológica que no solo satisfaga las necesidades actuales del almacén de la cafetería, sino que también siente las bases para su crecimiento futuro, integrando características escalables como reportes avanzados, análisis predictivo de inventarios y una posible integración con puntos de venta.
+
+\section{Alcances}
+\begin{itemize}
+\item \textbf{Gestión de inventario}: Registrar y actualizar las entradas y salidas de productos en el almacén.
+\item \textbf{Alertas}: Notificar al personal sobre niveles bajos de inventario.
+\item \textbf{Historial de movimientos}: Llevar un registro detallado de todas las actividades relacionadas con los productos.
+\item \textbf{Interfaz amigable}: Diseñar un panel gráfico que sea intuitivo tanto para empleados administrativos como operativos.
+\end{itemize}
+
+\section{Cronograma de Desarrollo}
+\begin{itemize}
+\item \textbf{Semana 1}: Análisis y Diseño
+\begin{itemize}
+\item Definir los requerimientos funcionales y no funcionales.
+\item Diseñar la arquitectura del sistema.
+\item Crear el prototipo de la base de datos.
+\item Crear el documento en \LaTeX.
+\end{itemize}
+\item \textbf{Semana 2}: Desarrollo del Módulo de Inventario
+\begin{itemize}
+\item Implementar CRUD de productos.
+\item Conectar el sistema con la base de datos.
+\item Desarrollar la lógica para registrar entradas y salidas de productos.
+\item Realizar pruebas básicas de almacenamiento y recuperación de datos.
+\end{itemize}
+\item \textbf{Semana 3}: Desarrollo de Alertas y Movimientos
+\begin{itemize}
+\item Implementar alertas para niveles bajos de stock.
+\item Desarrollar el historial de movimientos de productos.
+\item Optimizar consultas para mejorar la eficiencia en el manejo de datos.
+\item Probar la funcionalidad con datos de prueba.
+\end{itemize}
+\item \textbf{Semana 4}: Desarrollo de la Interfaz de Usuario
+\begin{itemize}
+\item Diseñar y programar la interfaz gráfica.
+\item Integrar la interfaz con la lógica del sistema.
+\item Realizar pruebas de usabilidad con empleados de la cafetería.
+\end{itemize}
+\item \textbf{Semana 5}: Pruebas, Optimización y Despliegue
+\begin{itemize}
+\item Realizar pruebas finales.
+\item Corregir errores y optimizar el código.
+\item Documentar el sistema (manual de usuario y documentación técnica).
+\end{itemize}
+\end{itemize}
+
+\section{Arquitectura del Sistema}
+\subsection{Componentes}
+\begin{itemize}
+\item \textbf{PL (Capa de Presentación)}: Contará con una interfaz intuitiva, ya que el uso principal del cliente será el punto de venta y la gestión del inventario de productos. En esta interfaz, el mesero podrá agregar productos.
+\item \textbf{BL (Capa de Lógica de Negocio)}: Se procesan los datos antes de ser enviados a la capa de presentación o a la base de datos. En esta capa se calcula el inventario y se valida la disponibilidad de productos.
+\item \textbf{DAL (Capa de Acceso a Datos)}: Se realizan las consultas, inserciones, actualizaciones y eliminaciones de productos de acuerdo con el consumo registrado.
+\end{itemize}
+
+\section{Fecha Límite}
+La entrega final del proyecto está programada para el 21 de abril de 2025.
+
+\end{document}
+
