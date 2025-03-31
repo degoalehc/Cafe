@@ -1,5 +1,5 @@
 
-import uam.mx.BL.Dto.CafeDto;
+import uam.mx.bl.dto.CafeDto;
 
 public class GestorCafe {
 
