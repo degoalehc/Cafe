@@ -19,10 +19,10 @@ public class ConexionDB {
     private Connection connection;
 
     public ConexionDB(){
-        AccesoDB();
+        port = "3306";
     }
 
-    private void AccesoBD(){
+    private void accesoDB(){
         Properties properties = new Properties();
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("db.properties")){
             if(input == null){
@@ -31,7 +31,6 @@ public class ConexionDB {
             properties.load(input);
             database = properties.getProperty("base");
             host = properties.getProperty("host");
-            port = properties.getProperty("port");
             database = properties.getProperty("scheme");
             host = properties.getProperty("usuario");
             port = properties.getProperty("contrasena");
