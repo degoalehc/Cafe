@@ -13,6 +13,7 @@ public class EGCafe extends JFrame {
     private JTextArea textArea;
 
     public EGCafe(){
+        
         gestionCafes = new GestorCafe();
         setTitle("Gestíón del almacen de Cafe");
         setSize(600, 400);
