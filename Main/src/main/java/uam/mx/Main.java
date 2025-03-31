@@ -1,7 +1,16 @@
 package uam.mx;
 
+import javax.swing.SwingUtilities;
+
+import uam.mx.pl.EGCafe;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run(){
+                new EGCafe().setVisible(true);
+            }
+        });
     }
 }

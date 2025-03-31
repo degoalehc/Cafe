@@ -1,3 +1,7 @@
+package uam.mx.pl;
+
+import uam.mx.BL.dto.GestorCafe;
+
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -6,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 
 public class EGCafe extends JFrame {
 
@@ -28,5 +33,19 @@ public class EGCafe extends JFrame {
         textArea.setFont(new Font("Monospaced", Font.PLAIN, 12)); 
         JScrollPane scrollPane = new JScrollPane(textArea); 
         panel.add(scrollPane, BorderLayout.CENTER);
+    }
+
+
+
+
+
+
+    public static void main(String[]args){
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run(){
+                new EGCafe().setVisible(true);
+            }
+        });
     }
 }
