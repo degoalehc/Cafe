@@ -5,6 +5,10 @@ public class ventas {
     private int importe;
     private int id;
     private String tipo;
+
+        public ventas(){
+            
+        }
     
         public ventas(int fecha, int id, int importe, String tipo) {
             this.fecha = fecha;

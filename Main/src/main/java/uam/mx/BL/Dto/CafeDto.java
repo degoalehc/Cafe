@@ -1,8 +1,9 @@
-package uam.mx.BL.Dto;
+package uam.mx.bl.dto;
 
 public class CafeDto {
 
     private String nombre;
+    private String locacion;
     private float cantidad;
     private int fecha;
     private int importe;
@@ -13,7 +14,7 @@ public class CafeDto {
 
     }
 
-    public CafeDto(float cantidad, int fecha, int id, int importe, String nombre, String tipo) {
+    public CafeDto(String nombre,String locacion, float cantidad, int fecha, int id, int importe,  String tipo) {
         this.cantidad = cantidad;
         this.fecha = fecha;
         this.id = id;
@@ -70,6 +71,14 @@ public class CafeDto {
         this.tipo = tipo;
     }
 
+    public String getLocacion() {
+        return locacion;
+    }
+
+    public void setLocacion(String locacion) {
+        this.locacion = locacion;
+    }
+
     @Override
 
     public String toString(){
@@ -81,6 +90,5 @@ public class CafeDto {
     }
 
     
-
 
 }
