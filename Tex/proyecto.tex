@@ -1,22 +1,19 @@
 \documentclass{article}
 
 \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
 
 \title{Sistema de Gestión de Inventario para una Cafetería}
 
-\author{Regina Andrade Fernández Arcipreste \and Diego Alejando Hernández Cruz \and Cintia Fernanda Reyes Hernández  }
+\author{Regina andrade Ferández Arcipreste\and Diego Alejando Hernández Cruz\and Cintia Fernanda Reyes Hernández  }
 
 \date{\today}
 
 \begin{document}
 
-\begin{center}
-
-Punto de venta de una cafeter/´ia
-
-\end{center}
-
-
+\maketitle
 
 \section{Introducción}
 Actualmente, la cafetería enfrenta dificultades para gestionar eficientemente su inventario y operaciones de almacén y ventas. La falta de un sistema automatizado genera errores humanos, como cálculos incorrectos de existencias, dificultades para prever necesidades de reabastecimiento y una gestión poco clara del stock. Esto puede resultar en pérdidas económicas y una experiencia subóptima para los clientes debido a productos no disponibles.
@@ -73,6 +70,9 @@ Crear una solución tecnológica que no solo satisfaga las necesidades actuales 
 \end{itemize}
 
 \section{Arquitectura del Sistema}
+\begin{figure}
+    \includegraphics[width=0.8\textwidth]{imgs/Captura de pantalla 2025-03-26 165026.png}
+\end{figure}
 \subsection{Componentes}
 \begin{itemize}
 \item \textbf{PL (Capa de Presentación)}: Contará con una interfaz intuitiva, ya que el uso principal del cliente será el punto de venta y la gestión del inventario de productos. En esta interfaz, el mesero podrá agregar productos.
@@ -84,4 +84,3 @@ Crear una solución tecnológica que no solo satisfaga las necesidades actuales 
 La entrega final del proyecto está programada para el 21 de abril de 2025.
 
 \end{document}
-
