@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 package uam.mx.pl;
 import uam.mx.bl.GestorAlmacenCafe;
-=======
-package uam.mx.PL;
->>>>>>> 200652b3126542ce8f13521cd457cee3c4680bef
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,24 +7,16 @@ import java.awt.event.*;
 
 public class EGCafe extends JFrame {
 
-<<<<<<< HEAD
     private GestorAlmacenCafe gestorCafe;
-=======
->>>>>>> 200652b3126542ce8f13521cd457cee3c4680bef
     private JTextArea textArea;
     private JTextField tfNombreProducto, tfCantidad;
     private JButton btnAgregarProducto, btnEliminarProducto, btnActualizarProducto, btnVenta;
     private JTable tableInventario;
 
     public EGCafe() {
-<<<<<<< HEAD
         gestorCafe = new GestorAlmacenCafe();
         setTitle("Gestión del Almacén de Café");
         setSize(600, 400);
-=======
-        setTitle("Gestión de Inventario y Ventas de Cafetería");
-        setSize(800, 500);
->>>>>>> 200652b3126542ce8f13521cd457cee3c4680bef
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
