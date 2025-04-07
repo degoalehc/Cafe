@@ -1,6 +1,5 @@
 package uam.mx.pl;
-
-import uam.mx.BL.dto.GestorCafe;
+import uam.mx.bl.GestorAlmacenCafe;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,11 +8,11 @@ import java.awt.event.ActionListener;
 
 public class EGCafe extends JFrame {
 
-    private GestorCafe gestionCafes;
+    private GestorAlmacenCafe gestorCafe;
     private JTextArea textArea;
 
     public EGCafe() {
-        gestionCafes = new GestorCafe();
+        gestorCafe = new GestorAlmacenCafe();
         setTitle("Gestión del Almacén de Café");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
