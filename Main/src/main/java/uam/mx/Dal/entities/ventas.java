@@ -1,16 +1,16 @@
-package uam.mx.dal.entities;
+package uam.mx.Dal.entities;
 
-public class Ventas {
+public class ventas {
     private int fecha;
     private int importe;
     private int id;
     private String tipo;
 
-        public Ventas(){
+        public ventas(){
             
         }
     
-        public Ventas(int fecha, int id, int importe, String tipo) {
+        public ventas(int fecha, int id, int importe, String tipo) {
             this.fecha = fecha;
             this.id = id;
             this.importe = importe;

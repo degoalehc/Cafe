@@ -1,4 +1,4 @@
-package uam.mx.bl.dto;
+package uam.mx.BL.Dto;
 
 public class CafeDto {
 

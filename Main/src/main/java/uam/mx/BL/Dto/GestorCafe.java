@@ -1,7 +1,7 @@
-package uam.mx.bl.dto;
+package uam.mx.BL.Dto;
 
-import uam.mx.dal.CafeDao;
-import uam.mx.dal.entities.Cafe;
+import uam.mx.Dal.CafeDao;
+import uam.mx.Dal.entities.Cafe;
 
 public class GestorCafe {
     CafeDao cafeteria = new CafeDao();
