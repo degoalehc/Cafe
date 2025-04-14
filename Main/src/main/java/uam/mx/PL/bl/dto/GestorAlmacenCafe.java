@@ -1,4 +1,4 @@
-package uam.mx.bl;
+package uam.mx.pl.bl.dto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +58,19 @@ public class GestorAlmacenCafe {
         } catch (Exception e) {
             System.err.println("Error al obtener cafés: " + e.getMessage());
             return new ArrayList<>();
+        }
+    }
+    public Cafe actualizarCafe(CafeDto cafe) {
+        try {
+            Cafe cafeEntity = new Cafe();
+            cafeEntity.setId(cafe.getId());
+            cafeEntity.setNombre(cafe.getNombre());
+            cafeEntity.setLocacion(cafe.getLocacion());
+            cafeEntity.setCantidad(cafe.getCantidad());
+            return cafeDao.update(cafeEntity); // Actualizar en la base de datos
+        } catch (Exception e) {
+            System.err.println("Error al actualizar café: " + e.getMessage());
+            return null; // Devuelve null en caso de error
         }
     }
 }

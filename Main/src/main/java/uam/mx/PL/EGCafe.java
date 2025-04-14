@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
-import uam.mx.bl.GestorAlmacenCafe;
+import uam.mx.pl.bl.dto.GestorAlmacenCafe;
 
 public class EGCafe extends JFrame {
 

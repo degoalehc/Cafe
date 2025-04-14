@@ -1,6 +1,4 @@
 package uam.mx.dal;
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uam.mx.dal.entities.Cafe;
+
+
 
 public class CafeDao implements EntityDao<Cafe>{
 
