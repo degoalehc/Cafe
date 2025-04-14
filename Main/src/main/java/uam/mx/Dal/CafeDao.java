@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import uam.mx.dal.entities.Cafe;
 
 public class CafeDao implements EntityDao<Cafe>{
@@ -57,7 +56,7 @@ public class CafeDao implements EntityDao<Cafe>{
 
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    Cafe found = new Cafes();
+                    Cafe found = new Cafe();
                     found.setId(rs.getInt("id"));
                     found.setNombre(rs.getString("Nombre"));
                     found.setLocacion(rs.getString("Locacion"));

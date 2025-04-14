@@ -1,146 +1,159 @@
 package uam.mx.pl;
-import uam.mx.bl.GestorAlmacenCafe;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
+
+import uam.mx.bl.GestorAlmacenCafe;
 
 public class EGCafe extends JFrame {
 
     private GestorAlmacenCafe gestorCafe;
-    private JTextArea textArea;
     private JTextField tfNombreProducto, tfCantidad;
     private JButton btnAgregarProducto, btnEliminarProducto, btnActualizarProducto, btnVenta;
     private JTable tableInventario;
+    private DefaultTableModel tableModel;
 
     public EGCafe() {
         gestorCafe = new GestorAlmacenCafe();
         setTitle("Gestión del Almacén de Café");
-        setSize(600, 400);
+        setSize(800, 500); // Dimensiones ajustadas para mejor presentación
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         // Panel principal con BorderLayout
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
+        JPanel panelPrincipal = new JPanel(new BorderLayout(10, 10)); // Espaciado agregado
 
-        // Panel de Inventario
+        // Panel de controles con BoxLayout
         JPanel panelControles = new JPanel();
-        panelControles.setLayout(new GridLayout(3, 2));
-        
+        panelControles.setLayout(new BoxLayout(panelControles, BoxLayout.Y_AXIS)); // Configuración en eje Y
+        panelControles.setBorder(BorderFactory.createTitledBorder("Control de Inventario"));
+
         panelControles.add(new JLabel("Nombre del Producto:"));
         tfNombreProducto = new JTextField();
+        tfNombreProducto.setMaximumSize(new Dimension(Integer.MAX_VALUE, tfNombreProducto.getPreferredSize().height)); // Ajuste de tamaño
         panelControles.add(tfNombreProducto);
 
         panelControles.add(new JLabel("Cantidad:"));
         tfCantidad = new JTextField();
+        tfCantidad.setMaximumSize(new Dimension(Integer.MAX_VALUE, tfCantidad.getPreferredSize().height)); // Ajuste de tamaño
         panelControles.add(tfCantidad);
 
         btnAgregarProducto = new JButton("Agregar Producto");
         btnEliminarProducto = new JButton("Eliminar Producto");
         btnActualizarProducto = new JButton("Actualizar Producto");
-        
+
         panelControles.add(btnAgregarProducto);
         panelControles.add(btnEliminarProducto);
         panelControles.add(btnActualizarProducto);
 
-        // Panel de tabla para mostrar inventario
-        String[] columnNames = {"ID", "Nombre Producto", "Cantidad"};
-        Object[][] data = {}; // Inicializar vacío
-        tableInventario = new JTable(data, columnNames);
+        // Panel de tabla con datos dinámicos
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Nombre Producto", "Cantidad"}, 0);
+        tableInventario = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(tableInventario);
+        scrollPane.setBorder(BorderFactory.createTitledBorder("Inventario Actual"));
 
-        // Panel de venta
+        // Panel de venta con botón centrado
+        JPanel panelVenta = new JPanel();
         btnVenta = new JButton("Realizar Venta");
-        btnVenta.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                abrirVentanaVenta();
-            }
-        });
+        panelVenta.add(btnVenta);
 
-        // Agregar todos los paneles al panel principal
-        panel.add(panelControles, BorderLayout.NORTH);
-        panel.add(scrollPane, BorderLayout.CENTER);
-        panel.add(btnVenta, BorderLayout.SOUTH);
+        // Agregar paneles al principal
+        panelPrincipal.add(panelControles, BorderLayout.NORTH);
+        panelPrincipal.add(scrollPane, BorderLayout.CENTER);
+        panelPrincipal.add(panelVenta, BorderLayout.SOUTH);
 
-        add(panel);
+        add(panelPrincipal);
 
-        // Eventos para los botones de inventario
-        btnAgregarProducto.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                agregarProducto();
-            }
-        });
-
-        btnEliminarProducto.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                eliminarProducto();
-            }
-        });
-
-        btnActualizarProducto.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                actualizarProducto();
-            }
-        });
+        // Eventos para los botones
+        btnAgregarProducto.addActionListener(e -> agregarProducto());
+        btnEliminarProducto.addActionListener(e -> eliminarProducto());
+        btnActualizarProducto.addActionListener(e -> actualizarProducto());
+        btnVenta.addActionListener(e -> abrirVentanaVenta());
     }
 
-    // Función para agregar producto
     private void agregarProducto() {
         String nombre = tfNombreProducto.getText();
         String cantidad = tfCantidad.getText();
-        // Lógica para agregar producto en la base de datos y en la tabla
-        JOptionPane.showMessageDialog(this, "Producto agregado: " + nombre);
+        try {
+            int cantidadNumerica = Integer.parseInt(cantidad);
+            tableModel.addRow(new Object[]{tableModel.getRowCount() + 1, nombre, cantidadNumerica});
+            JOptionPane.showMessageDialog(this, "Producto agregado: " + nombre);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Cantidad inválida. Ingrese un número.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    // Función para eliminar producto
     private void eliminarProducto() {
-        // Lógica para eliminar el producto seleccionado
-        JOptionPane.showMessageDialog(this, "Producto eliminado");
+        int filaSeleccionada = tableInventario.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            tableModel.removeRow(filaSeleccionada);
+            JOptionPane.showMessageDialog(this, "Producto eliminado.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    // Función para actualizar producto
     private void actualizarProducto() {
-        // Lógica para actualizar un producto
-        JOptionPane.showMessageDialog(this, "Producto actualizado");
+        int filaSeleccionada = tableInventario.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            String nombre = tfNombreProducto.getText();
+            String cantidad = tfCantidad.getText();
+            try {
+                int cantidadNumerica = Integer.parseInt(cantidad);
+                tableModel.setValueAt(nombre, filaSeleccionada, 1);
+                tableModel.setValueAt(cantidadNumerica, filaSeleccionada, 2);
+                JOptionPane.showMessageDialog(this, "Producto actualizado.");
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Cantidad inválida. Ingrese un número.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila para actualizar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    // Función para abrir la ventana de venta
     private void abrirVentanaVenta() {
-        // Crear ventana emergente
         JDialog ventaDialog = new JDialog(this, "Realizar Venta", true);
         ventaDialog.setSize(300, 200);
-        ventaDialog.setLayout(new GridLayout(3, 1));
         ventaDialog.setLocationRelativeTo(this);
+        ventaDialog.setLayout(new GridLayout(3, 1, 10, 10));
 
         JLabel label = new JLabel("Ingrese la cantidad a vender:");
         JTextField cantidadField = new JTextField();
-
         JButton btnConfirmar = new JButton("Confirmar");
-        btnConfirmar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String cantidadTexto = cantidadField.getText();
-                try {
-                    int cantidad = Integer.parseInt(cantidadTexto);
-                    if (cantidad > 0) {
-                        JOptionPane.showMessageDialog(ventaDialog, "Venta de " + cantidad + " unidades realizada.");
-                        ventaDialog.dispose(); // Cerrar la ventana después de la venta
-                        // Aquí puedes agregar la lógica de actualizar el inventario después de una venta
-                    } else {
-                        JOptionPane.showMessageDialog(ventaDialog, "Ingrese una cantidad válida.", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(ventaDialog, "Ingrese un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        btnConfirmar.addActionListener(e -> {
+            String cantidadTexto = cantidadField.getText();
+            try {
+                int cantidad = Integer.parseInt(cantidadTexto);
+                if (cantidad > 0) {
+                    JOptionPane.showMessageDialog(ventaDialog, "Venta de " + cantidad + " unidades realizada.");
+                    ventaDialog.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(ventaDialog, "Ingrese una cantidad válida.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(ventaDialog, "Ingrese un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
         ventaDialog.add(label);
         ventaDialog.add(cantidadField);
         ventaDialog.add(btnConfirmar);
-
         ventaDialog.setVisible(true);
     }
 
