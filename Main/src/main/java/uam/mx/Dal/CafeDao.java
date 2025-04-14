@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 package uam.mx.dal;
+=======
+package uam.mx.Dal;
+import uam.mx.Dal.EntityDao;
+import uam.mx.Dal.ConexionDB;
+
+>>>>>>> 9d70db475441f98ac9697e7277e97052ec42acd9
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,8 +13,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 
 import uam.mx.dal.entities.Cafe;
+=======
+import uam.mx.Dal.entities.Cafe;
+>>>>>>> 9d70db475441f98ac9697e7277e97052ec42acd9
 
 
 

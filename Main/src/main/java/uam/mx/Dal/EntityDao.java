@@ -1,4 +1,4 @@
-package uam.mx.dal;
+package uam.mx.Dal;
 
 import java.util.List;
 

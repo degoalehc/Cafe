@@ -1,4 +1,4 @@
-package uam.mx.dal.entities;
+package uam.mx.Dal.entities;
 
 public class ventas {
     private int fecha;

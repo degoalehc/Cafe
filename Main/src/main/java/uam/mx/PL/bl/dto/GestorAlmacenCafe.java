@@ -1,11 +1,15 @@
+<<<<<<< HEAD:Main/src/main/java/uam/mx/PL/bl/dto/GestorAlmacenCafe.java
 package uam.mx.pl.bl.dto;
+=======
+package uam.mx.PL.BL.Dto;
+>>>>>>> 9d70db475441f98ac9697e7277e97052ec42acd9:Main/src/main/java/uam/mx/BL/GestorAlmacenCafe.java
 
 import java.util.ArrayList;
 import java.util.List;
 
-import uam.mx.bl.dto.CafeDto;
-import uam.mx.dal.CafeDao;
-import uam.mx.dal.entities.Cafe;
+import uam.mx.BL.Dto.CafeDto;
+import uam.mx.Dal.CafeDao;
+import uam.mx.Dal.entities.Cafe;
 
 // Gestor principal para operaciones con cafés
 public class GestorAlmacenCafe {
@@ -60,6 +64,7 @@ public class GestorAlmacenCafe {
             return new ArrayList<>();
         }
     }
+<<<<<<< HEAD:Main/src/main/java/uam/mx/PL/bl/dto/GestorAlmacenCafe.java
     public Cafe actualizarCafe(CafeDto cafe) {
         try {
             Cafe cafeEntity = new Cafe();
@@ -74,3 +79,19 @@ public class GestorAlmacenCafe {
         }
     }
 }
+=======
+public boolean actualizarCafe(CafeDto cafe) {
+    try {
+        Cafe cafeEntity = new Cafe();
+        cafeEntity.setId(cafe.getId());
+        cafeEntity.setNombre(cafe.getNombre());
+        cafeEntity.setLocacion(cafe.getLocacion());
+        cafeEntity.setCantidad(cafe.getCantidad());
+        return cafeDao.update(cafeEntity);  // Actualizar en la base de datos
+    } catch (Exception e) {
+        System.err.println("Error al actualizar café: " + e.getMessage());
+        return false;
+    }
+}
+}
+>>>>>>> 9d70db475441f98ac9697e7277e97052ec42acd9:Main/src/main/java/uam/mx/BL/GestorAlmacenCafe.java

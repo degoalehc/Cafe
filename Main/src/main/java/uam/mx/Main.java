@@ -2,7 +2,7 @@ package uam.mx;
 
 import javax.swing.SwingUtilities;
 
-import uam.mx.pl.EGCafe;
+import uam.mx.PL.EGCafe;
 
 public class Main {
     public static void main(String[] args) {
